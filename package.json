@@ -1,0 +1,28 @@
+{
+  "name": "@otherdevopsgene/creditcard",
+  "version": "1.0.0",
+  "description": "Credit card checking in JavaScript for unit testing practice.",
+  "main": "index.js",
+  "devDependencies": {
+    "chai": "4.3.10",
+    "eslint": "8.55.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-mocha": "10.2.0",
+    "eslint-plugin-prettier": "5.0.1",
+    "mocha": "10.2.0",
+    "prettier": "3.1.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OtherDevOpsGene/creditcard-js.git"
+  },
+  "author": "OtherDevOpsGene <otherdevopsgene@portinfo.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/OtherDevOpsGene/creditcard-js/issues"
+  },
+  "homepage": "https://github.com/OtherDevOpsGene/creditcard-js"
+}
