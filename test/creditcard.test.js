@@ -21,21 +21,18 @@ describe("normalize", function () {
     );
   });
   it("should return a single string unchanged", function () {
-    assert.equal(
-      creditcard.normalize("6011111111111117"),
-      "6011111111111117",
-    );
+    assert.equal(creditcard.normalize("6011111111111117"), "6011111111111117");
   });
 });
 
 describe("luhn10", function () {
   context("valid card number", function () {
-    it("4111 1111 1111 1111 is valid", function () {
-      assert.equal(creditcard.luhn10("4111 1111 1111 1111"), true);
-    });
-
     it("4567-8901-2345-6783 is valid", function () {
       assert.equal(creditcard.luhn10("4567-8901-2345-6783"), true);
+    });
+
+    it("5555-5555-5555-4444 as an array is valid", function () {
+      assert.equal(creditcard.luhn10(["5555", "5555", "5555", "4444"]), true);
     });
   });
   context("invalid card number", function () {
