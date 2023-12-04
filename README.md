@@ -2,17 +2,36 @@
 
 Credit card checking in JavaScript for unit testing practice.
 
-## Credit card issuers
+## Exercise: normalize()
 
-- Visa: begin with a 4, can be 13 or 16 digits long
-- Mastercard: begin with a 50, 51, 52, 53, 54, or 55, must be 16 digits long
-- American Express: begin with a 34 or 37, must be 15 digits long
-- Discover Card: begin with 6011 or 65, must be 16 digits long
-- Other cards will be 12-19 digits long.
+Write a function
+- __with failing tests first__
+- that strips non-digits
+- from a string or an array
+- returns a single string
 
-There are more complete description of [credit card
-number](http://en.wikipedia.org/wiki/Bank_card_number) formats, but these rules
-will be sufficient for the exercise.
+| Input value | Return value
+| --- | ---
+| `"4111 1111 1111 1111"` | `"4111111111111111"`
+| `"5555-5555-5555-4444"` | `"5555555555554444"`
+| `["3400", "123456", "78905"]` | `"340012345678905"`
+| `"6011111111111117"` | `"6011111111111117"`
+
+## Exercise: luhn10()
+
+Write the tests for a function
+- that takes a credit card number as a string or an array
+- returns `true` if the checksum is valid
+- otherwise, returns `false`
+- _Don't bother writing the function_
+
+Valid
+- "4567-8901-2345-6783"
+- "5555-5555-5555-4444"
+
+Invalid
+- "4111 1111 1111 1110"
+
 
 ## Luhn algorithm
 
@@ -66,3 +85,15 @@ Another example, popular test card number 4111-1111-1111-1111 is also valid:
             29
 
 So the check digit is 1.
+
+## Credit card issuers
+
+- Visa: begin with a 4, can be 13 or 16 digits long
+- Mastercard: begin with a 50, 51, 52, 53, 54, or 55, must be 16 digits long
+- American Express: begin with a 34 or 37, must be 15 digits long
+- Discover Card: begin with 6011 or 65, must be 16 digits long
+- Other cards will be 12-19 digits long.
+
+There are more complete description of [credit card
+number](http://en.wikipedia.org/wiki/Bank_card_number) formats, but these rules
+will be sufficient for the exercise.
