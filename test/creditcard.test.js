@@ -1,24 +1,29 @@
-var creditcard = require("../creditcard.js");
+"use strict";
+
+var rewire = require("rewire");
+var creditcard = rewire("../creditcard.js");
+var normalize = creditcard.__get__("normalize");
+
 var expect = require("chai").expect;
 
 describe("normalize", function () {
   it("should strip spaces", function () {
-    expect(creditcard.normalize("4111 1111 1111 1111")).to.equal(
+    expect(normalize("4111 1111 1111 1111")).to.equal(
       "4111111111111111",
     );
   });
   it("should strip dashes", function () {
-    expect(creditcard.normalize("5555-5555-5555-4444")).to.equal(
+    expect(normalize("5555-5555-5555-4444")).to.equal(
       "5555555555554444",
     );
   });
   it("should join array", function () {
-    expect(creditcard.normalize(["3400", "123456", "78905"])).to.equal(
+    expect(normalize(["3400", "123456", "78905"])).to.equal(
       "340012345678905",
     );
   });
   it("should return a single string unchanged", function () {
-    expect(creditcard.normalize("6011111111111117")).to.equal(
+    expect(normalize("6011111111111117")).to.equal(
       "6011111111111117",
     );
   });

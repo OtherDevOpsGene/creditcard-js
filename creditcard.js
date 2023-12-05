@@ -86,6 +86,5 @@ function type(cc) {
   return "invalid unknown";
 }
 
-exports.normalize = normalize;
 exports.luhn10 = luhn10;
 exports.type = type;
