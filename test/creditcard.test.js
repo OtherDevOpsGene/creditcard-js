@@ -1,10 +1,9 @@
 "use strict";
 
-var rewire = require("rewire");
-var creditcard = rewire("../creditcard.js");
-var normalize = creditcard.__get__("normalize");
-
-var expect = require("chai").expect;
+const expect = require("chai").expect;
+const rewire = require("rewire");
+const creditcard = rewire("../creditcard.js");
+const normalize = creditcard.__get__("normalize");
 
 describe("normalize", function () {
   it("should strip spaces", function () {
