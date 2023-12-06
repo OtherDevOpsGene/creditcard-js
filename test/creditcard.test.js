@@ -1,5 +1,5 @@
-const creditcard = require("../creditcard.js");
 const expect = require("chai").expect;
+const creditcard = require("../creditcard.js");
 
 describe("normalize", function () {
   it("should strip spaces", function () {
