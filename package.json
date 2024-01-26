@@ -4,7 +4,7 @@
   "description": "Credit card checking in JavaScript for unit testing practice.",
   "main": "index.js",
   "devDependencies": {
-    "chai": "4.4.1",
+    "chai": "5.0.3",
     "eslint": "8.56.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-mocha": "10.2.0",
