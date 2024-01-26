@@ -55,7 +55,7 @@ describe("type", function () {
       expect(creditcard.type("4111-111-111-119")).to.equal("valid Visa");
     });
 
-    it("4111-111-111-119 is a bad checksum for Visa", function () {
+    it("4111-111-111-118 is a bad checksum for Visa", function () {
       expect(creditcard.type("4111-111-111-118")).to.equal("invalid Visa");
     });
 
