@@ -7,6 +7,7 @@ module.exports = {
   plugins: ["prettier", "mocha"],
   parserOptions: {
     ecmaVersion: 2017,
+    sourceType: "module",
   },
   env: {
     browser: true,

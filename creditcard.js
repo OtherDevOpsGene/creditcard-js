@@ -1,12 +1,12 @@
 "use strict";
 
-function normalize(parts) {
+export function normalize(parts) {
   let str = [parts].join("");
   let num = str.replace(/\D/g, "");
   return num;
 }
 
-function luhn10(cc) {
+export function luhn10(cc) {
   let num = normalize(cc);
 
   let sum = 0;
@@ -31,16 +31,16 @@ function luhn10(cc) {
   return total % 10 == 0;
 }
 
-function type(cc) {
+export function type(cc) {
   let num = normalize(cc);
 
   if (num.startsWith("4")) {
     if (13 === num.length || 16 === num.length) {
       if (luhn10(num)) {
-        return "valid Visa";
+        return [true, "Visa"];
       }
     }
-    return "invalid Visa";
+    return [false, "Visa"];
   }
 
   if (
@@ -53,39 +53,35 @@ function type(cc) {
   ) {
     if (16 === num.length) {
       if (luhn10(num)) {
-        return "valid Mastercard";
+        return [true, "Mastercard"];
       }
     }
-    return "invalid Mastercard";
+    return [false, "Mastercard"];
   }
 
   if (num.startsWith("34") || num.startsWith("37")) {
     if (15 === num.length) {
       if (luhn10(num)) {
-        return "valid American Express";
+        return [true, "American Express"];
       }
     }
-    return "invalid American Express";
+    return [false, "American Express"];
   }
 
   if (num.startsWith("6011") || num.startsWith("65")) {
     if (16 === num.length) {
       if (luhn10(num)) {
-        return "valid Discover Card";
+        return [true, "Discover Card"];
       }
     }
-    return "invalid Discover Card";
+    return [false, "Discover Card"];
   }
 
   if (12 <= num.length && 19 >= num.length) {
     if (luhn10(num)) {
-      return "valid unknown";
+      return [true, "unknown"];
     }
   }
 
-  return "invalid unknown";
+  return [false, "unknown"];
 }
-
-exports.normalize = normalize;
-exports.luhn10 = luhn10;
-exports.type = type;
