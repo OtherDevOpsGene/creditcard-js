@@ -37,10 +37,10 @@ export function type(cc) {
   if (num.startsWith("4")) {
     if (13 === num.length || 16 === num.length) {
       if (luhn10(num)) {
-        return [true, "Visa"];
+        return {valid: true, cardType: "Visa"};
       }
     }
-    return [false, "Visa"];
+    return {valid: false, cardType: "Visa"};
   }
 
   if (
@@ -53,35 +53,35 @@ export function type(cc) {
   ) {
     if (16 === num.length) {
       if (luhn10(num)) {
-        return [true, "Mastercard"];
+        return {valid: true, cardType: "Mastercard"};
       }
     }
-    return [false, "Mastercard"];
+    return {valid: false, cardType: "Mastercard"};
   }
 
   if (num.startsWith("34") || num.startsWith("37")) {
     if (15 === num.length) {
       if (luhn10(num)) {
-        return [true, "American Express"];
+        return {valid: true, cardType: "American Express"};
       }
     }
-    return [false, "American Express"];
+    return {valid: false, cardType: "American Express"};
   }
 
   if (num.startsWith("6011") || num.startsWith("65")) {
     if (16 === num.length) {
       if (luhn10(num)) {
-        return [true, "Discover Card"];
+        return {valid: true, cardType: "Discover Card"};
       }
     }
-    return [false, "Discover Card"];
+    return {valid: false, cardType: "Discover Card"};
   }
 
   if (12 <= num.length && 19 >= num.length) {
     if (luhn10(num)) {
-      return [true, "unknown"];
+      return {valid: true, cardType: "unknown"};
     }
   }
 
-  return [false, "unknown"];
+  return {valid: false, cardType: "unknown"};
 }

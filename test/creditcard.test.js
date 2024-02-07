@@ -39,143 +39,143 @@ describe("creditcard", function () {
   describe("type", function () {
     context("Visa", function () {
       it("4111 1111 1111 1111 is valid for Visa", function () {
-        let [valid, cardType] = type("4111 1111 1111 1111");
-        expect(valid).to.be.true;
-        expect(cardType).to.equal("Visa");
+        let cc = type("4111 1111 1111 1111");
+        expect(cc.valid).to.be.true;
+        expect(cc.cardType).to.equal("Visa");
       });
 
       it("4567-8901-2345-6783 is valid for Visa", function () {
-        let [valid, cardType] = type("4567-8901-2345-6783");
-        expect(valid).to.be.true;
-        expect(cardType).to.equal("Visa");
+        let cc = type("4567-8901-2345-6783");
+        expect(cc.valid).to.be.true;
+        expect(cc.cardType).to.equal("Visa");
       });
 
       it("4111-111-111-119 is valid for Visa", function () {
-        let [valid, cardType] = type("4111-111-111-119");
-        expect(valid).to.be.true;
-        expect(cardType).to.equal("Visa");
+        let cc = type("4111-111-111-119");
+        expect(cc.valid).to.be.true;
+        expect(cc.cardType).to.equal("Visa");
       });
 
       it("4111-111-111-118 is a bad checksum for Visa", function () {
-        let [valid, cardType] = type("4111-111-111-118");
-        expect(valid).to.be.false;
-        expect(cardType).to.equal("Visa");
+        let cc = type("4111-111-111-118");
+        expect(cc.valid).to.be.false;
+        expect(cc.cardType).to.equal("Visa");
       });
 
       it("4111-111-111-17 is too short for Visa", function () {
-        let [valid, cardType] = type("4111-111-111-17");
-        expect(valid).to.be.false;
-        expect(cardType).to.equal("Visa");
+        let cc = type("4111-111-111-17");
+        expect(cc.valid).to.be.false;
+        expect(cc.cardType).to.equal("Visa");
       });
 
       it("4111-1111-1111-1111-9 is too long for Visa", function () {
-        let [valid, cardType] = type("4111-1111-1111-1111-9");
-        expect(valid).to.be.false;
-        expect(cardType).to.equal("Visa");
+        let cc = type("4111-1111-1111-1111-9");
+        expect(cc.valid).to.be.false;
+        expect(cc.cardType).to.equal("Visa");
       });
 
       it("4111-1111-1111-14 is the wrong length for Visa", function () {
-        let [valid, cardType] = type("4111-1111-1111-14");
-        expect(valid).to.be.false;
-        expect(cardType).to.equal("Visa");
+        let cc = type("4111-1111-1111-14");
+        expect(cc.valid).to.be.false;
+        expect(cc.cardType).to.equal("Visa");
       });
     });
 
     context("Mastercard", function () {
       it("5555 5555 5555 4444 is valid for Mastercard", function () {
-        let [valid, cardType] = type("5555 5555 5555 4444");
-        expect(valid).to.be.true;
-        expect(cardType).to.equal("Mastercard");
+        let cc = type("5555 5555 5555 4444");
+        expect(cc.valid).to.be.true;
+        expect(cc.cardType).to.equal("Mastercard");
       });
 
       it("5111-1111-1111-1111 is a bad checksum for Mastercard", function () {
-        let [valid, cardType] = type("5111-1111-1111-1111");
-        expect(valid).to.be.false;
-        expect(cardType).to.equal("Mastercard");
+        let cc = type("5111-1111-1111-1111");
+        expect(cc.valid).to.be.false;
+        expect(cc.cardType).to.equal("Mastercard");
       });
 
       it("5555-5555-5555-558 is the wrong length for Mastercard", function () {
-        let [valid, cardType] = type("5555-5555-5555-558");
-        expect(valid).to.be.false;
-        expect(cardType).to.equal("Mastercard");
+        let cc = type("5555-5555-5555-558");
+        expect(cc.valid).to.be.false;
+        expect(cc.cardType).to.equal("Mastercard");
       });
     });
 
     context("American Express", function () {
       it("3411 111111 11111 is valid for American Express", function () {
-        let [valid, cardType] = type("3411 111111 11111");
-        expect(valid).to.be.true;
-        expect(cardType).to.equal("American Express");
+        let cc = type("3411 111111 11111");
+        expect(cc.valid).to.be.true;
+        expect(cc.cardType).to.equal("American Express");
       });
 
       it("3700-000000-00002 is valid for American Express", function () {
-        let [valid, cardType] = type("3700-000000-00002");
-        expect(valid).to.be.true;
-        expect(cardType).to.equal("American Express");
+        let cc = type("3700-000000-00002");
+        expect(cc.valid).to.be.true;
+        expect(cc.cardType).to.equal("American Express");
       });
 
       it("3700-000000-00001 is a bad checksum for American Express", function () {
-        let [valid, cardType] = type("3700-000000-00001");
-        expect(valid).to.be.false;
-        expect(cardType).to.equal("American Express");
+        let cc = type("3700-000000-00001");
+        expect(cc.valid).to.be.false;
+        expect(cc.cardType).to.equal("American Express");
       });
 
       it("3700-1234-5678-9012 is the wrong length for American Express", function () {
-        let [valid, cardType] = type("3700-1234-5678-9012");
-        expect(valid).to.be.false;
-        expect(cardType).to.equal("American Express");
+        let cc = type("3700-1234-5678-9012");
+        expect(cc.valid).to.be.false;
+        expect(cc.cardType).to.equal("American Express");
       });
     });
 
     context("Discover Card", function () {
       it("6011111111111117 is valid for Discover Card", function () {
-        let [valid, cardType] = type("6011111111111117");
-        expect(valid).to.be.true;
-        expect(cardType).to.equal("Discover Card");
+        let cc = type("6011111111111117");
+        expect(cc.valid).to.be.true;
+        expect(cc.cardType).to.equal("Discover Card");
       });
 
       it("6565 4444 5555 6666 is valid for Discover Card", function () {
-        let [valid, cardType] = type("6565 4444 5555 6666");
-        expect(valid).to.be.true;
-        expect(cardType).to.equal("Discover Card");
+        let cc = type("6565 4444 5555 6666");
+        expect(cc.valid).to.be.true;
+        expect(cc.cardType).to.equal("Discover Card");
       });
 
       it("6011111111111111 is a bad checksum for Discover Card", function () {
-        let [valid, cardType] = type("6011111111111111");
-        expect(valid).to.be.false;
-        expect(cardType).to.equal("Discover Card");
+        let cc = type("6011111111111111");
+        expect(cc.valid).to.be.false;
+        expect(cc.cardType).to.equal("Discover Card");
       });
 
       it("6565 4444 5555 661 is the wrong length for Discover Card", function () {
-        let [valid, cardType] = type("6565 4444 5555 661");
-        expect(valid).to.be.false;
-        expect(cardType).to.equal("Discover Card");
+        let cc = type("6565 4444 5555 661");
+        expect(cc.valid).to.be.false;
+        expect(cc.cardType).to.equal("Discover Card");
       });
     });
 
     context("unknown", function () {
       it("1234-5678-9015 is valid but unknown", function () {
-        let [valid, cardType] = type("1234-5678-9015");
-        expect(valid).to.be.true;
-        expect(cardType).to.equal("unknown");
+        let cc = type("1234-5678-9015");
+        expect(cc.valid).to.be.true;
+        expect(cc.cardType).to.equal("unknown");
       });
 
       it("1234 5678 9012 3456 785 is valid but unknown", function () {
-        let [valid, cardType] = type("1234 5678 9012 3456 785");
-        expect(valid).to.be.true;
-        expect(cardType).to.equal("unknown");
+        let cc = type("1234 5678 9012 3456 785");
+        expect(cc.valid).to.be.true;
+        expect(cc.cardType).to.equal("unknown");
       });
 
       it("1234 5678 9012 3456 7896 is too long to be a credit card number", function () {
-        let [valid, cardType] = type("1234 5678 9012 3456 7896");
-        expect(valid).to.be.false;
-        expect(cardType).to.equal("unknown");
+        let cc = type("1234 5678 9012 3456 7896");
+        expect(cc.valid).to.be.false;
+        expect(cc.cardType).to.equal("unknown");
       });
 
       it("1234-5678-903 is too short to be a credit card number", function () {
-        let [valid, cardType] = type("1234-5678-903");
-        expect(valid).to.be.false;
-        expect(cardType).to.equal("unknown");
+        let cc = type("1234-5678-903");
+        expect(cc.valid).to.be.false;
+        expect(cc.cardType).to.equal("unknown");
       });
     });
   });
