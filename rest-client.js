@@ -1,9 +1,8 @@
 "use strict";
 
 export class RestClient {
-  constructor(url, opts = {}) {
+  constructor(url) {
     this.url = url;
-    this.options = opts;
   }
 
   // Dummy method stub
