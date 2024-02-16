@@ -6,14 +6,17 @@ describe("creditcard", function () {
     it("should strip spaces", function () {
       expect(normalize("4111 1111 1111 1111")).to.equal("4111111111111111");
     });
+
     it("should strip dashes", function () {
       expect(normalize("5555-5555-5555-4444")).to.equal("5555555555554444");
     });
+
     it("should join array", function () {
       expect(normalize(["3400", "123456", "78905"])).to.equal(
         "340012345678905",
       );
     });
+
     it("should return a single string unchanged", function () {
       expect(normalize("6011111111111117")).to.equal("6011111111111117");
     });

@@ -6,22 +6,22 @@ export class RestClient {
   }
 
   // Dummy method stub
-  get(id) {
+  async get(id) {
+    return new Promise({status: 501}, null);
+  }
+
+  // Dummy method stub
+  async put(obj) {
     return {status: 501};
   }
 
   // Dummy method stub
-  put(obj) {
+  async post(obj) {
     return {status: 501};
   }
 
   // Dummy method stub
-  post(obj) {
-    return {status: 501};
-  }
-
-  // Dummy method stub
-  delete(id) {
+  async delete(id) {
     return {status: 501};
   }
 }
