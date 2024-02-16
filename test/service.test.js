@@ -13,20 +13,24 @@ describe("charge", function () {
       "Credit card number must be supplied.",
     );
   });
+
   it("missing expiration date", function () {
-    expect.fail("This test needs to be implemented.")
+    expect.fail("This test needs to be implemented.");
   });
+
   it("missing amount", function () {
-    expect.fail("This test needs to be implemented.")
+    expect.fail("This test needs to be implemented.");
   });
+
   it("invalid credit card number", function () {
-    expect.fail("This test needs to be implemented.")
+    expect.fail("This test needs to be implemented.");
   });
+
   it("invalid credit card type", function () {
-    expect.fail("This test needs to be implemented.")
+    expect.fail("This test needs to be implemented.");
   });
 
   it("valid POST to processor", function () {
-    expect.fail("This test needs to be implemented.")
+    expect.fail("This test needs to be implemented.");
   });
 });

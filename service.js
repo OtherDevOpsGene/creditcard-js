@@ -31,11 +31,10 @@ export class CreditCardProcessor {
 
     // let restClient = new RestClient(processorUrl);
     let response = this.restClient.post({
-        cardNumber: cardNo,
-        cardExpiration: exp,
-        amount: amount,
-      },
-    );
+      cardNumber: cardNo,
+      cardExpiration: exp,
+      amount: amount,
+    });
 
     return response.status;
   }
