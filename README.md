@@ -2,6 +2,12 @@
 
 Credit card checking in JavaScript for unit testing practice.
 
+## Exercise: Mocking service.js
+
+Implement missing tests in `test/service.test.js`
+- Run the tests first to see them fail (`npx mocha`)
+- You'll probably need to use a stub
+
 ## Exercise: normalize()
 
 Write a function
