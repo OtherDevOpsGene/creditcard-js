@@ -4,7 +4,7 @@ import * as sinon from "sinon";
 import {RestClient} from "../rest-client.js";
 
 chai.use(chaiAsPromised);
-const { expect } = chai;
+const {expect} = chai;
 
 describe("RestClient", function () {
   it("spy example", function () {
