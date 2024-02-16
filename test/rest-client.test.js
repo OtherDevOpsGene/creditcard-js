@@ -15,10 +15,11 @@ describe("RestClient", function () {
 
     let resp = restClient.get(processorUrl + "/1");
 
+    expect(resp).to.eventually.equal({status: 501});
+
     expect(get.calledOnce).to.be.true;
     expect(get.notCalled).to.be.false;
     expect(get.calledWith("https://example.org/bogus/1")).to.be.true;
-    expect(resp).to.eventually.equal({status: 501});
   });
 
   it("stub example", function () {
